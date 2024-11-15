@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { getDatabase, ref, set, push, get } from 'firebase/database';
 import app from '../../firebaseConfigFile';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 function CardPayment() {
     let [input1, setval1]=useState("");
@@ -15,6 +15,7 @@ function CardPayment() {
       set(newDocRef, {
         name: input1,
         number: input2
+
       }).then( () => {
         alert("data saved successfully")
       }).catch((error) => {
@@ -38,35 +39,53 @@ function CardPayment() {
 
   return (
     <div>
-        <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="string" placeholder="Enter email" onChange={(e)=>setval1(e.target.value)}/>
-                
-            </Form.Group>
+        <Container>
+            <Row>
+                <Col style={{
+                    marginTop: '100px'
+                }}>
+                    <Form>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="string" placeholder="Name On The Card" onChange={(e)=>setval1(e.target.value)}/>
+                        </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="string" placeholder="Password" onChange={(e)=>setval2(e.target.value)}/>
-            </Form.Group>
-            <Button variant="primary"  onClick={saveData}>
-                Submit
-            </Button>
-        </Form>
-        <br></br>
-        <Button variant="primary" onClick={fetchData}>Display</Button>
-        <ul>
-          {getvalArry.map( (item, index) => (
-            <li key={index}> 
-              Name: {item.name}
-              <br></br>
-              Number :{item.number}
-            </li>
-                   
-          ) )}
-        </ul>
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Number</Form.Label>
+                            <Form.Control type="string" placeholder="Card Number" onChange={(e)=>setval2(e.target.value)}/>
+                        </Form.Group>
 
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>Expire Date</Form.Label>
+                            <Form.Control type="string" placeholder="Expire Date"/>
+                        </Form.Group>
 
+                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                            <Form.Label>CVV</Form.Label>
+                            <Form.Control type="string" placeholder="CVV"/>
+                        </Form.Group>
+                        
+                        <Button variant="primary"  onClick={saveData}>
+                            Submit
+                        </Button>
+                    </Form>
+                    <br></br>
+                    <Button variant="primary" onClick={fetchData}>Display</Button>
+                    <ul>
+                        {getvalArry.map((item, index) => (
+                            <li key={index}> 
+                            Name: {item.name}
+                            <br></br>
+                            Number : {item.number}
+                            </li>
+                        ))}
+                    </ul>
+                </Col>
+            </Row>
+        </Container>
+        
+        
+        
     </div>
   )
 }

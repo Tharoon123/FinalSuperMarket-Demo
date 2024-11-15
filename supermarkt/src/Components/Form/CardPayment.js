@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { getDatabase, ref, set, push, get } from 'firebase/database';
 import app from '../../firebaseConfigFile';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import payment2 from '../Assets/payment2.png'
 
 function CardPayment() {
     let [input1, setval1]=useState("");
@@ -48,6 +49,11 @@ function CardPayment() {
                 <Col style={{
                     marginTop: '100px'
                 }}>
+                    <img src={payment2} style={{
+                        height: '150px',
+                        paddingLeft: '800px'
+                    }}></img>
+                    <br></br>
                     <Form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Name</Form.Label>
@@ -72,6 +78,8 @@ function CardPayment() {
                         <Button variant="primary"  onClick={saveData}>
                             Submit
                         </Button>
+                        
+                        
                     </Form>
                     <br></br>
                     <Button variant="primary" onClick={fetchData}>Display</Button>

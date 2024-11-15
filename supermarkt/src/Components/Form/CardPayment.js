@@ -43,18 +43,34 @@ function CardPayment() {
     }
 
     //check the face ID
+    
     const fetchFaceID = async () => {
         const db = getDatabase(app);
         const dbRef = ref(db, "card_details");
         const snapshot = await get(dbRef);
         if(snapshot.exists()) {
             setvalArry(Object.values(snapshot.val()));
-            console.log(snapshot.val())
-            
+            //craeting Hash Value
+            /*
+                let name=[];
+                name=getvalArry[0]['name']
+                console.log(name)
+                let hash = 0;
+                let i,char;
+
+                for (i = 0; i <  name.length; i++) {
+                    char = name.charCodeAt(i);
+                    hash = ((hash << 5) - hash) + char;
+                    hash = hash & hash;
+                }
+                console.log(name,hash)
+            */
         } else {
             alert("error");
         }
     }
+
+    
 
   return (
     <div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { getDatabase, ref, set, push, get } from 'firebase/database';
 import app from '../../firebaseConfigFile';
+import { Button, Form } from 'react-bootstrap';
 
 function CardPayment() {
     let [input1, setval1]=useState("");
@@ -37,12 +38,23 @@ function CardPayment() {
 
   return (
     <div>
-        <input type='text' value={input1} onChange={(e)=>setval1(e.target.value)}></input>
-        <input type='text' value={input2} onChange={(e)=>setval2(e.target.value)}></input>
-        <button onClick={saveData}> Save </button>
-        <br/>
+        <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Name</Form.Label>
+                <Form.Control type="string" placeholder="Enter email" onChange={(e)=>setval1(e.target.value)}/>
+                
+            </Form.Group>
 
-        <button onClick={fetchData}>Display</button>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="string" placeholder="Password" onChange={(e)=>setval2(e.target.value)}/>
+            </Form.Group>
+            <Button variant="primary"  onClick={saveData}>
+                Submit
+            </Button>
+        </Form>
+        <br></br>
+        <Button variant="primary" onClick={fetchData}>Display</Button>
         <ul>
           {getvalArry.map( (item, index) => (
             <li key={index}> 

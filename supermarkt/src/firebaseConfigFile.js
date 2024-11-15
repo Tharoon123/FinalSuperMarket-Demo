@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -8,7 +7,6 @@ import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyAzczp6cdxfyr1OndUx9ZGssI-NU9hMZa0",
   authDomain: "finalproject11142024.firebaseapp.com",
-  databseURL: "https://finalproject11142024-default-rtdb.firebaseio.com/",
   projectId: "finalproject11142024",
   storageBucket: "finalproject11142024.firebasestorage.app",
   messagingSenderId: "796817227146",
@@ -17,5 +15,4 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-export const db = getFirestore(app)
+export default app;

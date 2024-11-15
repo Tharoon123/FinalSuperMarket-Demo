@@ -76,7 +76,8 @@ export default function Footer() {
                             height: 100,
                             width: 450
                         }
-                    } alt="" onClick={()=>navigate('/FormData')}/>
+                    } alt="" onClick={()=>navigate('/CardPayment')}
+                    />
                 </div>
             </div>
 

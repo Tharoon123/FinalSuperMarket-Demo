@@ -6,6 +6,8 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 function CardPayment() {
     let [input1, setval1]=useState("");
     let [input2, setval2]=useState("");
+    let [input3, setval3]=useState("");
+    let [input4, setval4]=useState("");
 
     //console.log(input1, input2)
 
@@ -14,7 +16,9 @@ function CardPayment() {
       const newDocRef = push(ref(db, "card_details"));
       set(newDocRef, {
         name: input1,
-        number: input2
+        number: input2,
+        expire_date: input3,
+        cvv: input4
 
       }).then( () => {
         alert("data saved successfully")
@@ -55,12 +59,12 @@ function CardPayment() {
                             <Form.Control type="string" placeholder="Card Number" onChange={(e)=>setval2(e.target.value)}/>
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Group className="mb-3" controlId="formBasicPassword" onChange={(e)=>setval3(e.target.value)}>
                             <Form.Label>Expire Date</Form.Label>
                             <Form.Control type="string" placeholder="Expire Date"/>
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Group className="mb-3" controlId="formBasicPassword" onChange={(e)=>setval4(e.target.value)}>
                             <Form.Label>CVV</Form.Label>
                             <Form.Control type="string" placeholder="CVV"/>
                         </Form.Group>
@@ -83,9 +87,6 @@ function CardPayment() {
                 </Col>
             </Row>
         </Container>
-        
-        
-        
     </div>
   )
 }

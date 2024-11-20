@@ -81,7 +81,6 @@ function CardPayment() {
         <Container>
             
             <Row>
-            
                 <Col style={{
                     marginTop: '100px'
                 }}>
@@ -115,7 +114,7 @@ function CardPayment() {
                             <Form.Control type="string" placeholder="CVV"/>
                         </Form.Group>
                         
-                        <Button variant="primary"  onClick={fetchFaceID}>
+                        <Button variant="primary"  onClick={saveData}>
                             Submit
                         </Button>
                         

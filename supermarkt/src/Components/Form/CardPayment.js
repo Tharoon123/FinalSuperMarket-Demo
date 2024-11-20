@@ -3,6 +3,8 @@ import { getDatabase, ref, set, push, get } from 'firebase/database';
 import app from '../../firebaseConfigFile';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import payment2 from '../Assets/payment2.png'
+import HeaderS from '../Header/HeaderS'
+import NavBar from '../Navbar/Navbar'
 
 function CardPayment() {
     let [input1, setval1]=useState("");
@@ -50,8 +52,8 @@ function CardPayment() {
         const snapshot = await get(dbRef);
         if(snapshot.exists()) {
             setvalArry(Object.values(snapshot.val()));
-            //craeting Hash Value
-            /*
+            //craeting Hash Value  sdfasdfadf
+            
                 let name=[];
                 name=getvalArry[0]['name']
                 console.log(name)
@@ -64,7 +66,7 @@ function CardPayment() {
                     hash = hash & hash;
                 }
                 console.log(name,hash)
-            */
+            
         } else {
             alert("error");
         }
@@ -74,14 +76,22 @@ function CardPayment() {
 
   return (
     <div>
+        <HeaderS></HeaderS>
+        <NavBar></NavBar>
         <Container>
+            
             <Row>
+            
                 <Col style={{
                     marginTop: '100px'
                 }}>
+                    <p style={{
+                        fontSize: '40px',
+                        paddingLeft: '500px'
+                    }}>Proceed to Pay </p>
                     <img src={payment2} style={{
                         height: '150px',
-                        paddingLeft: '800px'
+                        paddingLeft: '400px'
                     }}></img>
                     <br></br>
                     <Form>

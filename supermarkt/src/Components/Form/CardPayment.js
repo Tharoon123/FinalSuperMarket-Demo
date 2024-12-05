@@ -5,8 +5,11 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import payment2 from '../Assets/payment2.png'
 import HeaderS from '../Header/HeaderS'
 import NavBar from '../Navbar/Navbar'
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function CardPayment() {
+
+    const navigate=useNavigate();
     let [input1, setval1]=useState("");
     let [input2, setval2]=useState("");
     let [input3, setval3]=useState("");
@@ -144,6 +147,8 @@ function CardPayment() {
                 </Col>
             </Row>
         </Container>
+        <Button onClick={()=>navigate('/FaceVerify')}>Pay</Button>
+        <input type="file" id="imageUpload"></input>
     </div>
   )
 }

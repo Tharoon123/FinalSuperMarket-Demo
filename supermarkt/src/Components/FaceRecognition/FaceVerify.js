@@ -8,7 +8,7 @@ function FaceVerify() {
   return (
 
     <div>
-            <a href="http://192.168.1.5:8082" className="my-link">
+            <a href="http://192.168.56.1:8080" className="my-link">
             Go to face Recognition 
             </a>
     </div>

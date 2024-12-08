@@ -146,9 +146,9 @@ function CardPayment() {
                     </ul>
                 </Col>
             </Row>
+            <a href="http://192.168.56.1:8080" className="my-link">Go To Next Page</a>
         </Container>
-        <Button onClick={()=>navigate('/FaceVerify')}>Pay</Button>
-        <input type="file" id="imageUpload"></input>
+       
     </div>
   )
 }
